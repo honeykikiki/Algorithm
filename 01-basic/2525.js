@@ -2,9 +2,10 @@ const fs = require('fs');
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 let input = fs.readFileSync(filePath).toString().split('\n');
 
-let input1 = input[0].split(' ').map((item) => item);
-let input2 = input[1].split(' ').map((item) => item);
-solution(+input1[0], +input1[1], +input2[0]);
+let [a, b] = input[0].split(' ').map((item) => item);
+let [c] = input[1].split(' ').map((item) => item);
+
+solution(+a, +b, +c);
 
 function solution(hour, minute, addTime) {
   // Write your code
