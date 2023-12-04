@@ -1,4 +1,1 @@
-3
-happy
-new
-year
+ The first character is a blank

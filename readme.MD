@@ -63,3 +63,14 @@ rl.on('line', function (line) {
   process.exit();
 });
 ```
+
+## 선형 구조
+
+- 선형구조
+  - 배열 (array)
+  - 연결 리스트 (linked list)
+  - 스택 (stack)
+  - 큐 (queue)
+- 비선형 구조
+  - 트리 (tree)
+  - 그래프 (graph)
