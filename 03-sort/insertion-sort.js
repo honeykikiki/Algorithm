@@ -1,6 +1,5 @@
 function insertionSort(arr) {
   // 삽입정렬
-  let index = 0;
   for (let i = 1; i < arr.length; i++) {
     for (let j = 0; j < i; j++) {
       index++;
@@ -13,7 +12,6 @@ function insertionSort(arr) {
     }
   }
   console.log(arr);
-  console.log(index);
 }
 
 // insertionSort([9, 4, 6, 8, 2, 3, 1, 7, 5]);
