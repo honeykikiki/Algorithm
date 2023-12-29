@@ -12,12 +12,7 @@ function solution(input) {
 
   let result = '';
   for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < coordinate.length; j++) {
-      const element = coordinate[j];
-      if (arr[i] == element.item) {
-        result += element.length + ' ';
-      }
-    }
+    result += coordinate[arr[i]] + ' ';
   }
 
   console.log(result);
@@ -26,10 +21,12 @@ function solution(input) {
 function coordinateCompression(arr) {
   let coordinate = [...new Set(arr)];
 
-  let result = coordinate.sort().map((item, i) => {
-    return { item: item, length: i };
-  });
+  let result = {};
+  let coord = coordinate.sort((a, b) => a - b);
 
-  // console.log(result);
+  for (let i = 0; i < coord.length; i++) {
+    result[coord[i]] = i;
+  }
+
   return result;
 }
