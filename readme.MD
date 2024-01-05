@@ -28,18 +28,17 @@
 - 기능: 전체 텍스트를 읽어 온 뒤에, 줄바꿈 기호를 기준으로 구분하여 리스트로 변환하기
 
 ```js
-const fs = require("fs");
-const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
-let input = fs.readFileSync(filePath).toString().split("\n");
+const fs = require('fs');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+let input = fs.readFileSync(filePath).toString().split('\n');
 
 input = input[0];
-input = input.split(" ").map((item) => item);
+input = input.split(' ').map((item) => item);
 
 solution();
 
 function solution() {
   // Write your code
-
 }
 ```
 
@@ -55,7 +54,7 @@ const rl = require('readline').createInterface({
 
 let input = [];
 rl.on('line', function (line) {
-  // 콘솔 입력 창에서 줄바꿈을 입력할 떄마다 호출 
+  // 콘솔 입력 창에서 줄바꿈을 입력할 떄마다 호출
   input.push(line);
 }).on('close', function () {
   // 콘솔 입력 창에서 ctrl + C 혹은 ctrl + D를 입력하면 호출 (입력의 종료)
@@ -74,3 +73,12 @@ rl.on('line', function (line) {
 - 비선형 구조
   - 트리 (tree)
   - 그래프 (graph)
+
+## 프로그램의 성능 측정 방법
+
+- 일반적으로 연산 횟수가 10억을 넘어가면 1초 이상의 시간이 소요된다.
+  [예시] 𝑛이 1,000일 때를 고려해 보자.
+  - 𝑂 𝑛 : 약 1,000번의 연산
+  - 𝑂 𝑛𝑙𝑜𝑔𝑛 : 약 10,000번의 연산
+  - 𝑂 𝑛2 : 약 1,000,000번의 연산
+  - 𝑂 𝑛3 : 약 1,000,000,000번의 연산
