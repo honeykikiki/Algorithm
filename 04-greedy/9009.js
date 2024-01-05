@@ -1,6 +1,6 @@
 const fs = require('fs');
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-let input = fs.readFileSync(filePath).toString().split('\n');
+let input = fs.readFileSync(filePath).toString().trim().split('\n');
 
 let pibo = [];
 pibo.push(0);
@@ -31,5 +31,3 @@ function solution(input) {
   for (let i = 0; i < result.length; i++)
     console.log(result[i].reverse().join(' '));
 }
-
-// ----------------------- (내 풀이)

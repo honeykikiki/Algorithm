@@ -5,14 +5,16 @@ let input = fs.readFileSync(filePath).toString().trim().split('\n');
 solution(input);
 
 function solution(input) {
-  // Write your code
-  let [char] = input;
+  let [n, k] = input[0].split(' ').map(Number);
 
-  let data = char.trim().split(' ');
+  let sum = (k * (k + 1)) / 2;
 
-  if (data == '') {
-    console.log(0);
+  if (sum > n) {
+    // 공의 개수가 부족한 경우
+    console.log(-1);
   } else {
-    console.log(data.length);
+    n - sum;
+    if (n % k == 0) console.log(k - 1);
+    else console.log(k);
   }
 }
