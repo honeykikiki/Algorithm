@@ -6,10 +6,9 @@ let input = fs.readFileSync(filePath).toString().trim().split('\n');
 solution(input);
 
 function solution(input) {
-  let [n, arr, m] = input;
-  n = +n;
-  arr = arr.split(' ').map(Number);
-  m = +m;
+  let n = +input[0];
+  let arr = input[1].split(' ').map(Number);
+  let m = +input[2];
 
   let start = 0;
   let end = arr.reduce((a, b) => Math.max(a, b));
@@ -19,8 +18,9 @@ function solution(input) {
   while (start <= end) {
     let mid = parseInt((start + end) / 2);
     let total = 0;
-    for (const x of arr) {
-      total += Math.min(mid, x);
+
+    for (const item of arr) {
+      total += Math.min(item, mid);
     }
 
     if (total <= m) {
