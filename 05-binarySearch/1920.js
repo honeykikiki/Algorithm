@@ -18,10 +18,10 @@ function solution(input) {
 
   for (const x of list) {
     let start = 0;
-    let end = findList.length;
+    let end = findList.length - 1;
     let flag = false;
 
-    while (start < end) {
+    while (start <= end) {
       let mid = parseInt((start + end) / 2);
 
       if (x < findList[mid]) {
@@ -41,5 +41,5 @@ function solution(input) {
     }
   }
 
-  console.log(result);
+  console.log(result.join('\n'));
 }
