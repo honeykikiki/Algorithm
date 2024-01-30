@@ -13,21 +13,20 @@ function solution(input) {
 
   let answer = '';
 
-  function dfs(arr, idx, depth) {
+  function dfs(arr, depth) {
     if (depth == m) {
-      console.log(selected.join(' '));
-      return; // 있어도 되고 없어도 됨
+      for (let i = 0; i < selected.length; i++) answer += selected[i] + ' ';
+      answer += '\n';
+      return;
     }
 
-    for (let i = idx; i < arr.length; i++) {
-      if (visited[i]) continue;
+    for (let i = 0; i < arr.length; i++) {
       selected.push(i + 1);
-      visited[i] = true;
-      dfs(arr, i, depth + 1);
+      dfs(arr, depth + 1);
       selected.pop();
-      visited[i] = false;
     }
   }
+  dfs(arr, 0);
 
-  dfs(arr, 0, 0);
+  console.log(answer);
 }
