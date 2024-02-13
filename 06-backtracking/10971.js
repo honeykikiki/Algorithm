@@ -5,28 +5,50 @@ let input = fs.readFileSync(filePath).toString().trim().split('\n');
 solution(input);
 
 function solution(input) {
-  let [n, m] = input[0].split(' ').map(Number);
-  let arr = []; // 순열을 계산하고자 하는 원소가 담긴 배열
-  for (let i = 1; i <= n; i++) arr.push(i);
-  // let visited = new Array(n).fill(false); // 각 원소 인덱스 별 방문 여부
-  let selected = []; // 현재 순열에 포함된 원소
+  let [n, ...list] = input;
+  n = +n;
+  let graph = []; // 전체 그래프 정보 입력
+  for (let i = 0; i <= n; i++) graph.push([0]);
+  for (let i = 0; i < n; i++) {
+    const line = list[i].split(' ').map(Number);
+    for (let j = 0; j < line.length; j++) graph[i + 1].push(line[j]);
+  }
 
-  let answer = '';
+  let visited = new Array(11).fill(false); // 방문처리 배열
+  let result = []; //순열 정보 배열
+  let minValue = 1e9;
 
-  function dfs(arr, depth, start) {
-    if (depth === m) {
-      for (let i = 0; i < selected.length; i++) answer += selected[i] + ' ';
-      answer += '\n';
-      return;
+  function dfs(depth) {
+    if (depth == n - 1) {
+      let totalCost = 0; // 1번 노드에서 출발
+      let cur = 1; // 1번 노드에서 출발
+      for (let i = 0; i < n - 1; i++) {
+        let nextNode = result[i];
+        let cost = graph[cur][nextNode];
+        if (cost == 0) return;
+        console.log(cost);
+        totalCost += cost;
+        cur = nextNode;
+      }
+
+      // 마지막 노드에서 1로 돌아오는것이 필수
+      let cost = graph[cur][1];
+      if (cost == 0) return; // 이동 불가면 무시
+      totalCost += cost;
+      minValue = Math.min(minValue, totalCost);
     }
 
-    for (let i = start; i < arr.length; i++) {
-      selected.push(i + 1);
-      dfs(arr, depth + 1, i);
-      selected.pop();
+    for (let i = 2; i <= n; i++) {
+      if (visited[i]) continue;
+      result.push(i);
+      visited[i] = true;
+      dfs(depth + 1);
+      result.pop();
+      visited[i] = false;
     }
   }
-  dfs(arr, 0, 0);
 
-  console.log(answer);
+  dfs(0);
+
+  console.log(minValue);
 }
