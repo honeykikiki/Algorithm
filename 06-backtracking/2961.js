@@ -28,7 +28,7 @@ function solution(input) {
         totalX *= x;
         totalY += y;
       }
-      // console.log(totalX, totalY);
+
       minValue = Math.min(minValue, Math.abs(totalX - totalY));
     }
 
