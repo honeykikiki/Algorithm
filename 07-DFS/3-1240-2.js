@@ -35,3 +35,11 @@ function solution(input) {
     console.log(distance[y]);
   }
 }
+
+// 문제;
+// 4 2
+// 2 1 2
+// 4 3 2
+// 1 4 3
+// 1 2
+// 3 2
