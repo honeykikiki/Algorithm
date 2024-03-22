@@ -12,7 +12,6 @@ let cntList = [];
 for (let i = 0; i < n; i++) {
   for (let j = 0; j < n; j++) {
     let current = dfs(i, j);
-    // console.log(current);
     if (current > 0) cntList.push(current);
   }
 }
