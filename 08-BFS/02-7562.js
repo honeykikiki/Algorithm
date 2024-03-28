@@ -27,10 +27,10 @@ class Queue {
   }
 }
 
-const fs = require('fs');
+const fs = require("fs");
 
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-let input = fs.readFileSync(filePath).toString().trim().split('\n');
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs.readFileSync(filePath).toString().trim().split("\n");
 
 let testCase = +input[0];
 let line = 1;
@@ -40,8 +40,8 @@ let dy = [-1, -2, 1, 2, -2, -1, 2, 1];
 while (testCase--) {
   const queue = new Queue();
   let I = +input[line];
-  let [x, y] = input[line + 1].split(' ').map(Number);
-  let [targetX, targetY] = input[line + 2].split(' ').map(Number);
+  let [x, y] = input[line + 1].split(" ").map(Number);
+  let [targetX, targetY] = input[line + 2].split(" ").map(Number);
   let visited = [];
   for (let i = 0; i < I; i++) visited.push(Array(I).fill(0));
   queue.enqueue([x, y]);
@@ -67,3 +67,14 @@ while (testCase--) {
 
   console.log(visited[targetX][targetY] - 1);
 }
+
+// 3
+// 8
+// 0 0
+// 7 0
+// 100
+// 0 0
+// 30 50
+// 10
+// 1 1
+// 1 1
