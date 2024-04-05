@@ -24,3 +24,11 @@ for (let i = 3; i < n; i++) {
 
 console.log(dp);
 console.log(dp[n - 1]);
+
+// 6
+// 6
+// 10
+// 13
+// 9
+// 8
+// 1
