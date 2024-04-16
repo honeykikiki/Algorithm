@@ -24,4 +24,4 @@ for (let i = 3; i < n; i++) {
   d[i] = Math.max(d[i], arr[i] + arr[i - 1] + d[i - 3]);
 }
 
-console.log(Math.max(...d));
+console.log(d[n - 1]);
