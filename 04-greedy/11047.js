@@ -1,12 +1,12 @@
-const fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-let input = fs.readFileSync(filePath).toString().trim().split('\n');
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs.readFileSync(filePath).toString().trim().split("\n");
 
 solution(input);
 
 function solution(input) {
   let [length, ...arr] = input;
-  let amount = +length.split(' ')[1];
+  let amount = +length.split(" ")[1];
   for (let i = 0; i < arr.length; i++) arr[i] = +arr[i];
 
   let cnt = 0;
