@@ -1,14 +1,14 @@
-const { resolveObjectURL } = require('buffer');
-const fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-let input = fs.readFileSync(filePath).toString().trim().split('\n');
+const { resolveObjectURL } = require("buffer");
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs.readFileSync(filePath).toString().trim().split("\n");
 
 solution(input);
 
 function solution(input) {
   let [n, arr, m] = input;
   n = +n;
-  arr = arr.split(' ').map(Number);
+  arr = arr.split(" ").map(Number);
   m = +m;
 
   let start = 0;

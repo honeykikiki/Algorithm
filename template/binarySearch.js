@@ -1,15 +1,15 @@
-const fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-let input = fs.readFileSync(filePath).toString().trim().split('\n');
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs.readFileSync(filePath).toString().trim().split("\n");
 
 solution(input);
 
 function solution(input) {
-  let numbers = input[0].split(' ').map(Number);
+  let numbers = input[0].split(" ").map(Number);
   let target = 3;
 
   let result = binarySearch(numbers, target, 0, numbers.length - 1);
-  if (result < 0) console.log('찾고자 하는 값이 없습니다');
+  if (result < 0) console.log("찾고자 하는 값이 없습니다");
   else console.log(result);
 
   console.log(countByRange(numbers, 3, 11));
@@ -40,7 +40,6 @@ function countByRange(arr, leftValue, rightValue) {
 // 가장 왼쪽에 있는 값
 function lowerBound(arr, target, start, end) {
   while (start < end) {
-    console.log(start, end);
     let mid = parseInt((start + end) / 2);
     if (arr[mid] >= target) end = mid;
     else start = mid + 1;
@@ -53,7 +52,6 @@ function lowerBound(arr, target, start, end) {
 function upperBound(arr, target, start, end) {
   while (start < end) {
     let mid = parseInt((start + end) / 2);
-    console.log(start, mid, end, arr[start], arr[mid], arr[end]);
 
     if (arr[mid] > target) end = mid;
     else start = mid + 1;
