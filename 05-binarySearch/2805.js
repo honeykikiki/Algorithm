@@ -1,13 +1,13 @@
-const fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-let input = fs.readFileSync(filePath).toString().trim().split('\n');
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs.readFileSync(filePath).toString().trim().split("\n");
 
 solution(input);
 
 function solution(input) {
   let [n, arr] = input;
-  const H = +n.split(' ')[1];
-  arr = arr.split(' ').map(Number);
+  const H = +n.split(" ")[1];
+  arr = arr.split(" ").map(Number);
 
   let left = 0;
   let right = arr.reduce((a, b) => Math.max(a, b));
@@ -19,7 +19,8 @@ function solution(input) {
 
     for (const item of arr) if (item > mid) total += item - mid;
 
-    console.log(total, H, left, right);
+    console.log(total, H, left, right, mid);
+
     if (total < H) {
       right = mid - 1;
     } else {

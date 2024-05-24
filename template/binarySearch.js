@@ -41,6 +41,7 @@ function countByRange(arr, leftValue, rightValue) {
 function lowerBound(arr, target, start, end) {
   while (start < end) {
     let mid = parseInt((start + end) / 2);
+
     if (arr[mid] >= target) end = mid;
     else start = mid + 1;
   }
