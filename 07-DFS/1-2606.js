@@ -1,6 +1,6 @@
-const fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-let input = fs.readFileSync(filePath).toString().trim().split('\n');
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs.readFileSync(filePath).toString().trim().split("\n");
 
 solution(input);
 
@@ -10,7 +10,7 @@ function solution(input) {
   let graph = [];
   for (let i = 1; i <= n; i++) graph[i] = [];
   for (let i = 2; i <= m + 1; i++) {
-    let [x, y] = input[i].split(' ').map(Number);
+    let [x, y] = input[i].split(" ").map(Number);
     graph[x].push(y);
     graph[y].push(x);
   }

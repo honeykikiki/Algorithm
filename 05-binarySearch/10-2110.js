@@ -4,27 +4,34 @@ const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 let input = fs.readFileSync(filePath).toString().trim().split("\n");
 
 let [n, target] = input[0].split(" ").map(Number);
-let arr = input[1].split(" ").map(Number);
+let arr = [];
 
-let start = 0;
-let end = Math.max(...arr);
-let result = 0;
+for (let i = 1; i <= n; i++) {
+  arr.push(+input[i]);
+}
+
+arr.sort((a, b) => a - b);
+
+let start = 1;
+let end = arr[arr.length - 1];
 
 while (start <= end) {
   let mid = parseInt((start + end) / 2);
 
-  let total = 0;
-  for (const x of arr) if (x > mid) total += x - mid;
+  let cnt = 1;
+  let prev = arr[0];
 
-  // 지금 나무보다, 필요한 나무가 큰 경우
-  if (total < target) {
-    // 왼쪽으로
+  for (const cur of arr) {
+    if (cur - prev < mid) continue;
+    prev = cur;
+    cnt++;
+  }
+
+  if (cnt < target) {
     end = mid - 1;
   } else {
-    // 오른쪽으로
-    result = mid;
     start = mid + 1;
   }
 }
 
-console.log(result);
+console.log(end);
