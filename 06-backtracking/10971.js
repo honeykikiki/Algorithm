@@ -1,6 +1,6 @@
-const fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-let input = fs.readFileSync(filePath).toString().trim().split('\n');
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs.readFileSync(filePath).toString().trim().split("\n");
 
 solution(input);
 
@@ -10,7 +10,7 @@ function solution(input) {
   let graph = []; // 전체 그래프 정보 입력
   for (let i = 0; i <= n; i++) graph.push([0]);
   for (let i = 0; i < n; i++) {
-    const line = list[i].split(' ').map(Number);
+    const line = list[i].split(" ").map(Number);
     for (let j = 0; j < line.length; j++) graph[i + 1].push(line[j]);
   }
 
@@ -22,11 +22,12 @@ function solution(input) {
     if (depth == n - 1) {
       let totalCost = 0; // 1번 노드에서 출발
       let cur = 1; // 1번 노드에서 출발
+      // console.log(result);
       for (let i = 0; i < n - 1; i++) {
         let nextNode = result[i];
         let cost = graph[cur][nextNode];
         if (cost == 0) return;
-        console.log(cost);
+        // console.log(cost);
         totalCost += cost;
         cur = nextNode;
       }
