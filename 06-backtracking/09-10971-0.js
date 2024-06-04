@@ -15,21 +15,21 @@ let minValue = 10e9;
 
 function dfs(depth) {
   if (depth == n - 1) {
-    let totalCost = 0;
+    let total = 0;
     let cur = 0;
     for (let i = 0; i < n - 1; i++) {
-      let next = selected[i];
-      let cost = arr[cur][next];
-      if (cost == 0) continue;
-      totalCost += cost;
-      cur = next;
+      let nextNode = selected[i];
+      let cost = arr[cur][nextNode];
+      if (cost == 0) return;
+      total += cost;
+      cur = nextNode;
     }
 
-    let cost = arr[cur][0];
-    if (cost == 0) return;
-    totalCost += cost;
+    let cost = arr[cur][0]; // 처음으로 돌아오는 값
+    if (cost == 0) return; // 0이면 자기 자신이라 불가능
+    total += cost;
+    minValue = Math.min(minValue, total);
 
-    minValue = Math.min(minValue, totalCost);
     return;
   }
 
@@ -44,5 +44,4 @@ function dfs(depth) {
 }
 
 dfs(0);
-
 console.log(minValue);
