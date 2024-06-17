@@ -9,7 +9,7 @@ function solution(input) {
   let queens = [];
 
   function possible(x, y) {
-    console.log(...queens);
+    // console.log(...queens);
     // (x, y) 위치에 퀸을 놓을 수 있는지 확인
     for (const [a, b] of queens) {
       // 현재까지 놓았던 모든 퀸의 위치를 하나씩 확인
