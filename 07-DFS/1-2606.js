@@ -14,7 +14,7 @@ function solution(input) {
     graph[x].push(y);
     graph[y].push(x);
   }
-
+  console.log(graph.join("\n"));
   let cnt = 0;
   let visited = Array(n + 1).fill(false);
   function dfs(x) {
