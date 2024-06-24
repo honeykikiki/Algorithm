@@ -1,14 +1,14 @@
-const fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-let input = fs.readFileSync(filePath).toString().trim().split('\n');
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs.readFileSync(filePath).toString().trim().split("\n");
 
-let [n, m] = input[0].split(' ').map(Number);
+let [n, m] = input[0].split(" ").map(Number);
 let selected = [];
 // 집 과 치킨집 데이터 파싱
 let 집 = []; // ex) [[1, 2], [2, 4], [3, 5]]
 let 치킨집 = []; // ex) [[1, 2], [2, 4], [3, 5]]
 for (let i = 1; i <= n; i++) {
-  let line = input[i].split(' ');
+  let line = input[i].split(" ");
   line.forEach((x, y) => {
     if (x == 1) 집.push([i, y + 1]);
     if (x == 2) 치킨집.push([i, y + 1]);
