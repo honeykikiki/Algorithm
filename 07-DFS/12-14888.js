@@ -1,10 +1,10 @@
-const fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-let input = fs.readFileSync(filePath).toString().trim().split('\n');
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs.readFileSync(filePath).toString().trim().split("\n");
 
 let n = +input[0];
-let list = input[1].split(' ').map(Number);
-let operatorList = input[2].split(' ').map(Number);
+let list = input[1].split(" ").map(Number);
+let operatorList = input[2].split(" ").map(Number);
 let operator = [];
 let temp = [];
 let visited = Array(n).fill(false);
@@ -12,10 +12,10 @@ let visited = Array(n).fill(false);
 // 연산자 파싱
 for (let i = 0; i < operatorList.length; i++) {
   for (let j = 0; j < operatorList[i]; j++) {
-    if (i == 0) operator.push('+');
-    if (i == 1) operator.push('-');
-    if (i == 2) operator.push('*');
-    if (i == 3) operator.push('/');
+    if (i == 0) operator.push("+");
+    if (i == 1) operator.push("-");
+    if (i == 2) operator.push("*");
+    if (i == 3) operator.push("/");
   }
 }
 
@@ -27,16 +27,16 @@ function dfs(depth) {
     for (let i = 1; i < n; i++) {
       let operator = temp[i - 1];
 
-      if (operator == '+') {
+      if (operator == "+") {
         value = value + list[i];
       }
-      if (operator == '-') {
+      if (operator == "-") {
         value = value - list[i];
       }
-      if (operator == '*') {
+      if (operator == "*") {
         value = value * list[i];
       }
-      if (operator == '/') {
+      if (operator == "/") {
         value = ~~(value / list[i]);
       }
     }
