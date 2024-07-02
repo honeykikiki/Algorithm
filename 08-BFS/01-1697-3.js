@@ -25,34 +25,32 @@ class Queue {
     return this.tailIndex - this.headIndex;
   }
 }
-
 const fs = require("fs");
 
 const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 let input = fs.readFileSync(filePath).toString().trim().split("\n");
 
 let [n, k] = input[0].split(" ").map(Number);
-const max = 100001;
-let visited = Array(max).fill(0);
 
-function bfs() {
-  const queue = new Queue();
-  queue.enqueue(n);
+let MAX = 100001;
+let queue = new Queue();
+let visited = Array(MAX).fill(0);
 
-  while (queue.getLength != 0) {
-    let cur = queue.dequeue();
-    if (cur == k) return visited[cur];
+queue.enqueue(n);
+while (queue.getLength() != 0) {
+  let item = queue.dequeue();
 
-    for (const nxt of [cur - 1, cur + 1, cur * 2]) {
-      if (nxt < 0 || nxt > max) continue;
-      if (visited[nxt] == 0) {
-        visited[nxt] = visited[cur] + 1;
-        queue.enqueue(nxt);
-      }
+  // if (item == k) {
+  //   break;
+  // }
+
+  for (const nxt of [item - 1, item + 1, item * 2]) {
+    if (nxt < 0 || nxt > MAX) continue;
+    if (visited[nxt] == 0) {
+      visited[nxt] = visited[item] + 1;
+      queue.enqueue(nxt);
     }
   }
 }
 
-console.log(bfs());
-
-// 5 17
+console.log(visited[k]);
