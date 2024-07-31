@@ -50,6 +50,8 @@ queue.enqueue([1, 1]);
 
 let found = false;
 
+console.log(graph.join("\n"));
+
 while (queue.getLength() != 0) {
   let [dist, now] = queue.dequeue();
 
