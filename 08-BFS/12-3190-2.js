@@ -105,6 +105,8 @@ while (true) {
   }
 }
 
+console.log(data.join("\n"));
+
 console.log(time);
 
 // 6

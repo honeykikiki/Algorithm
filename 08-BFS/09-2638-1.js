@@ -67,23 +67,6 @@ function findCheese() {
       }
     }
   }
-
-  // for (let x = 0; x < n; x++) {
-  //   for (let y = 0; y < m; y++) {
-  //     if (graph[x][y] == 1) {
-  //       let cnt = 0;
-
-  //       for (let i = 0; i < 4; i++) {
-  //         const nx = x + dx[i];
-  //         const ny = y + dy[i];
-
-  //         if (nx < 0 || ny < 0 || nx > n || ny > m) continue;
-  //         if (graph[nx][ny] == 2) {
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
 }
 
 function isMelting() {
