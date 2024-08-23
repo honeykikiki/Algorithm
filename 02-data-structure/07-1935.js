@@ -27,6 +27,7 @@ function createOperation(operator) {
 }
 
 let operation = ["+", "-", "*", "/"];
+
 for (const el of arr) {
   if (operation.includes(el)) createOperation(el);
   else stack.push(obj[el]);
